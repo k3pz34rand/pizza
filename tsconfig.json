@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    // Базовые настройки
+    //"target": "esnext", // Компилировать в самый современный стандарт JavaScript
+    "lib": ["dom", "dom.iterable", "esnext"], // Библиотеки, необходимые для работы в браузере и с современным JavaScript
+    "allowJs": true, // Разрешить компиляцию JS-файлов (полезно для миграции)
+    "skipLibCheck": true, // Не проверять типы в файлах .d.ts (экономит время компиляции)
+    "esModuleInterop": true, // Включает правильную совместимость между ES модулями и CommonJS
+    "allowSyntheticDefaultImports": true, // Разрешает импорт по умолчанию из модулей, у которых нет экспорта default
+
+    // Строгость проверок
+    "strict": false, // Включает все строгие проверки TypeScript (рекомендуется)
+    "forceConsistentCasingInFileNames": true, // Требовать согласованности регистров в именах файлов
+    "noFallthroughCasesInSwitch": true, // Запрещает проваливание в операторах switch без break
+    "noUnusedLocals": true, // Ошибка при неиспользуемых локальных переменных
+    "noUnusedParameters": true, // Ошибка при неиспользуемых параметрах функции
+    "noImplicitReturns": true, // Ошибка, если функция не возвращает значение явно
+    //"noImplicitAny": true, // Ошибка при неявном типе `any`
+    "noImplicitThis": true, // Ошибка при неявном типе `this`
+
+    // Модули
+    "module": "esnext", // Используем ES-модули
+    "moduleResolution": "node", // Node.js-совместимый механизм резолва модулей
+    "resolveJsonModule": true, // Позволяет импортировать JSON-файлы как модули
+    "isolatedModules": true, // Обеспечивает соответствие транспиляции ES-модулям
+
+    // JSX и React
+    "jsx": "react-jsx", // Используем новый JSX Transform React 17+
+    "jsxImportSource": "react", // Используем `react` как источник импорта для JSX
+
+    // Оптимизация
+    "noEmit": true, // Не генерировать JS-файлы, так как этим занимается бандлер (webpack, vite, etc.)
+    "incremental": true, // Инкрементальная сборка (ускорение повторных сборок)
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@context/*": ["./src/context/*"],
+      "@/*": ["./src/*"]
+    },
+    "baseUrl": "./src",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
+  },
+
+  "include": ["src"], // Файлы и папки, которые нужно компилировать (по умолчанию - папка `src`)
+  "exclude": ["node_modules", "dist", "**/*.test.*"] // Файлы и папки, которые нужно исключить из компиляции
+}
